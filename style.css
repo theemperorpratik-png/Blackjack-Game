@@ -1,6 +1,6 @@
 h1 {
     color: goldenrod;
-    font-size: 12vh;
+    font-size: 50px;
     justify-self: center;
     margin: 30px 0px;
 }
@@ -14,11 +14,38 @@ body {
     background-image: url("background.jpg");
     background-position: center;
     background-size: cover;
-    height: 100vh;
+    background-repeat: no-repeat;
+    
+}
+body {
+    margin: 0px;
+    min-height: 100vh;
+    display: flow-root;
 }
 p {
     color: white;
-    font-size: 12vh;
+    font-size: 28px;
     justify-self: center;
     margin: 20px 0px ;
+    font-weight: bolder;
+    font-style: italic;
+}
+.but {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+.but button {
+    margin-top:20px ;
+    justify-self: center;
+    border-radius: 8px;
+    height: 90px;
+    width: 300px;
+    color: #016f32;
+    border-color: goldenrod;
+    font-size: 32px;
+    font-weight: bold;
+    background-color: goldenrod;
+    font-family: cursive;
 }
