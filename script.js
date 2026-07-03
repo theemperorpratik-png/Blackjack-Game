@@ -92,8 +92,5 @@ function getRandomCard() {
         return randomNumber
     }
 }
-function hit() {
-   if()
 
-}
 
