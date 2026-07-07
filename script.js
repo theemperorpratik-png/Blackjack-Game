@@ -146,5 +146,6 @@ function hit() {
     }
     renderGame()
 }
+//pratik
 
 
