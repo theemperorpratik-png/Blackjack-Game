@@ -6,6 +6,9 @@ let isAlive = false
 let messegeEl = document.getElementById("messege-el")
 let sumEl = document.querySelector("#sum-el")
 let cardEl = document.querySelector("#card-el")
+let dfc = getRandomCard() 
+let dsc = Math.floor(Math.random()*9 + 2)
+let win = false
 
 document.getElementById("but2").style.display = "none"
 
@@ -19,7 +22,7 @@ playerEl.textContent = player.name + ": $" + player.chips
 
 
 function renderGame() {
-    if (sum <= 20) {
+    if (sum <= 20 && win === false) {
         message = " Do you want to draw another card🤔?"
         document.getElementById("but0").style.display = "flex"
     } else if (sum === 21) {
@@ -54,8 +57,8 @@ function renderGame() {
     }
 }
 function startGame() {
-    let dfc = getRandomCard() 
-    let dsc = Math.floor(Math.random*9 + 2)
+    dfc = getRandomCard() 
+    dsc = Math.floor(Math.random()*9 + 2)
 
     document.getElementById("dealer").textContent = "Dealers Card: " + "?" + " " + dfc
     playerEl.textContent = player.name + ": $" + 67
@@ -69,8 +72,10 @@ function startGame() {
     sum = firstCard + secondCard
     document.getElementById("but2").style.display = "flex"
     document.getElementById("but1").style.display = "none"
+    win = false
     
     renderGame()
+    
 }
 function newCard() {
     if (isAlive === true && hasBlackjack === false) {
@@ -92,5 +97,32 @@ function getRandomCard() {
         return randomNumber
     }
 }
-//deployment check
+function hit() {
+    document.getElementById("dealer").textContent = "Dealers Card: " + dsc + " " + dfc
+    let dsum = dsc + dfc
+    if(dsum > sum){
+       message = " no youve lost the game😶😥"
+        isAlive = false
+        document.getElementById("but2").style.display = "none"
+        document.getElementById("but1").style.display = "flex"
+        document.querySelector("#but1").innerHTML = '<button id="wan" onclick="startGame()">Play Again</button></div>'
+        document.getElementById("wan").style.backgroundColor = "red"
+        playerEl.textContent = player.name + ": $" + 0
+        document.getElementById("but0").style.display = "none" 
+    }
+    if(dsum < sum) {
+       message = " wooo youve won the game!!🥳🥳"
+        hasBlackjack = true
+        document.getElementById("but2").style.display = "none"
+        document.getElementById("but1").style.display = "flex"
+        document.querySelector("#but1").innerHTML = '<button id="wan" onclick="startGame()">Lets Goo</button></div>'
+        document.getElementById("wan").style.backgroundColor = "skyblue"
+        playerEl.textContent = player.name + ": $" + "1000"
+        document.getElementById("but0").style.display = "none"
+        win = true 
+        
+    }
+    renderGame()
+}
+
 
