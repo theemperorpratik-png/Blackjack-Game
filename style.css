@@ -59,10 +59,15 @@ p {
     font-family: cursive;
 }
 a {
-    color: rgb(200, 71, 252);
+    color: white;
     position: absolute;
     bottom: 10px;
     left: 20px;
+    background-color: goldenrod;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 16px;
+    font-weight: bolder;
 }
 #but0 {
     display: none;
